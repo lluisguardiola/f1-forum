@@ -1,4 +1,4 @@
-class CreateResult < ActiveRecord::Migration[6.0]
+class CreateResults < ActiveRecord::Migration[6.0]
   def change
     create_table :results do |t|
       t.integer :driver_id
