@@ -3,13 +3,16 @@ class CreateResults < ActiveRecord::Migration[6.0]
     create_table :results do |t|
       t.integer :driver_id
       t.integer :race_id
-      t.integer :placement
-      t.string :race_time
-      t.integer :qualifying_placement
-      t.string :qualifying_lap
-      t.string :fastest_lap
-      t.string :grid_start
-    
+      t.integer :grid
+      t.integer :place
+      t.string :status
+      t.integer :laps
+      t.string :race_time, default: nil
+      t.string :fastest_lap_time, default: nil
+      t.string :fastest_lap, default: nil
+      t.integer :fastest_lap_rank, default: nil
+      t.decimal :avg_speed, :precision => 6, :scale => 3
+      
       t.timestamps
     end
   end

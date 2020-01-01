@@ -1,3 +1,3 @@
 class Venue < ApplicationRecord
-    belongs_to :race
+    has_many :races
 end

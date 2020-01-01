@@ -15,6 +15,9 @@ ActiveRecord::Schema.define(version: 2019_12_31_143632) do
   create_table "drivers", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
+    t.string "abbr"
+    t.integer "car_number"
+    t.string "dob"
     t.string "nationality"
     t.integer "team_id"
     t.datetime "created_at", precision: 6, null: false
@@ -23,9 +26,10 @@ ActiveRecord::Schema.define(version: 2019_12_31_143632) do
 
   create_table "races", force: :cascade do |t|
     t.string "name"
+    t.integer "round"
+    t.string "date"
+    t.string "time"
     t.integer "venue_id"
-    t.date "date"
-    t.string "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,12 +37,15 @@ ActiveRecord::Schema.define(version: 2019_12_31_143632) do
   create_table "results", force: :cascade do |t|
     t.integer "driver_id"
     t.integer "race_id"
-    t.integer "placement"
+    t.integer "grid"
+    t.integer "place"
+    t.string "status"
+    t.integer "laps"
     t.string "race_time"
-    t.integer "qualifying_placement"
-    t.string "qualifying_lap"
+    t.string "fastest_lap_time"
     t.string "fastest_lap"
-    t.string "grid_start"
+    t.integer "fastest_lap_rank"
+    t.decimal "avg_speed", precision: 6, scale: 3
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -52,6 +59,8 @@ ActiveRecord::Schema.define(version: 2019_12_31_143632) do
 
   create_table "venues", force: :cascade do |t|
     t.string "trackname"
+    t.string "country"
+    t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
