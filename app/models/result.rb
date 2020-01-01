@@ -1,5 +1,5 @@
 class Result < ApplicationRecord
-    belongs_to :driver
-    has_one :race
-    has_one :venue, thorugh: :race
+    belongs_to :race
+    has_one :driver
+    has_one :venue, through: :race
 end
