@@ -1,0 +1,8 @@
+<h1><%= @team.name %></h1>
+<% @team.drivers.each do |d| %>
+    <ul>
+        <li><%= link_to d.fullname, driver_path(d) %></li>
+    </ul>
+<% end %>
+
+<p><%= link_to "Back to all teams", teams_path %></p>

@@ -1,0 +1,11 @@
+<h1><%= @driver.fullname %></h1>
+
+<h2>Racing for: <%= link_to @driver.team.name, team_path(@driver.team.id) %></h2>
+
+<% @driver.results.order(race_id: :desc).each do |r| %>
+    <ul>
+        <li>GP: <%= r.race.name %>, Place: <%= r.place %></li>
+    </ul>
+<% end %>
+
+<p><%= link_to "Back to all drivers", drivers_path %></p>

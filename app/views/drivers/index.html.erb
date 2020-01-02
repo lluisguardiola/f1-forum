@@ -1,0 +1,7 @@
+<h1>2019 Drivers</h1>
+
+<% @drivers.order(:firstname).each do |d| %>
+    <ul>
+        <li><h3><%= link_to d.fullname, d %></h3></li>
+    </ul>
+<% end %>
