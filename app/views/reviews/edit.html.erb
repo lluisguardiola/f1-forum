@@ -1,2 +1,23 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
+<h1>Editing <%= @review.user.username %>'s review</h1>
+
+<% if @errors %>
+    <% @errors.each do |error| %>
+        <p style="color:red"><%= error %></p>
+    <% end %>
+<% end %>
+
+<%= form_with model: @review do |f| %>
+    <%= f.label :race_id %>
+    <%= f.collection_select(:race_id, @races, :id, :name) %>
+    <br>
+    <br>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <br>
+    <br>
+    <%= f.label :rating %>
+    <%= f.select :rating, (1..10) %>
+    <br>
+    <br>
+    <%= f.submit %>
+<% end %>

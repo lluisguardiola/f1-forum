@@ -1,10 +1,18 @@
 <h1><%= @race.name %></h1>
 <h2>Race Start: <%= @race.datetime %></h2>
 <h2>Held at the <%= @race.venue.trackname %></h2>
+<h3>Average user rating: <%= @race.avg_rating %></h3>
 <% @race.results.order(place: :asc).each do |result| %>
 
         <p> <%= result.place.ordinalize %> Place: <%= link_to result.driver.fullname, result %></p>
 
 <% end %>
+<br>
+<center><h2> ------------------------------------------------------------ COMMENT SECTION ------------------------------------------------------------ </h2></center>
+<% @race.reviews.each do |r| %>
+        <p><%= link_to r.user.username, r.user %>: "<%= r.content %>" - rated <%= r.rating %> / 10</p>
+<% end %>
+
+<p><%= button_to "Review this race", new_review_path, method: :get %></p>
 
 <p><%= link_to "Back to all races", races_path %></p>

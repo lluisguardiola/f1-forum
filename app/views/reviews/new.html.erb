@@ -1,2 +1,30 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<h1> Create a new Review </h1>
+
+<% if @errors %>
+    <% @errors.each do |error| %>
+        <p style="color:red"><%= error %></p>
+    <% end %>
+<% end %>
+
+<p>User not found? Click below to create a new user <%= button_to "Create New User", new_user_path, method: :get %></p>
+<br>
+
+<%= form_with model: @review do |f| %>
+    <%= f.label :user_id %>
+    <%= f.collection_select(:user_id, @users, :id, :username) %>
+    <br>
+    <br>
+    <%= f.label :race_id %>
+    <%= f.collection_select(:race_id, @races, :id, :name) %>
+    <br>
+    <br>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <br>
+    <br>
+    <%= f.label :rating %>
+    <%= f.select :rating, (1..10) %>
+    <br>
+    <br>
+    <%= f.submit %>
+<% end %>

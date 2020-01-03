@@ -6,12 +6,13 @@
 <% else %>
     <h2><%= @user.username %>'s reviews: </h2>
     <% @user.reviews.each do |r| %>
-        <p>Commented: "<%= r.content %>" on <%= r.race.name %></p>
+        <p>Commented: "<%= r.content %>" on <%= link_to r.race.name, r.race %></p>
     <% end %>
 <% end %>
-
+<br>
+<p><%= button_to "Review a Race!", new_review_path, method: :get %></p>
 <br>
 <p><%= button_to "Edit user", edit_user_path(@user) %></p>
-<%= button_to 'Delete user', user_path(@user), :data => {:confirm => 'Are you sure?'}, :method => :delete %>
+<%= button_to 'Delete user', user_path(@user), :data => {:confirm => 'Are you sure?'}, method: :delete %>
 <br>
 <p><%= link_to "Back to all users", users_path %></p>

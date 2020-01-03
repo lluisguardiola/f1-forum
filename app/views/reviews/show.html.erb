@@ -1,2 +1,11 @@
-<h1>Reviews#show</h1>
-<p>Find me in app/views/reviews/show.html.erb</p>
+<h1><%= link_to @review.user.username, user_path(@review.user) %>'s Review of the <%= @review.race.name %></h1>
+
+<h3>Rated <%= @review.rating %> out of 10</h3>
+<p>"<%= @review.content %>"</p>
+
+
+<br>
+<p><%= button_to "Edit review", edit_review_path(@review), method: :get %></p>
+<%= button_to "Delete review", review_path(@review), :data => {:confirm => 'Are you sure?'}, method: :delete %>
+<br>
+<p><%= link_to "Back to all reviews", reviews_path %></p>

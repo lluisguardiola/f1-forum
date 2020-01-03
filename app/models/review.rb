@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
     belongs_to :user
-    has_one :race
+    belongs_to :race
 end
