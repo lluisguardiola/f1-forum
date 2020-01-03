@@ -1,3 +1,11 @@
+# Race.destroy_all
+# Venue.destroy_all
+# Team.destroy_all
+# Driver.destroy_all
+# Result.destroy_all
+# User.destroy_all
+# Review.destroy_all
+
 ergast_text = RestClient.get("http://ergast.com/api/f1/current/results.json?limit=420") #info for the whole current season
 ergast_info = JSON.parse(ergast_text)
 
@@ -48,7 +56,22 @@ all_rounds_info.each do |round|
         )
     end
 end
-        
+
+50.times do
+    user = User.create(
+        username: Faker::Pokemon.name.delete("\s"), 
+        email: Faker::Pokemon.unique.location.delete("\s"), 
+        password: Faker::FunnyName.unique.two_word_name.delete("\s")
+    )
+    3.times do
+        Review.create(
+            user_id: user.id,
+            race_id: Race.all.sample.id,
+            content: Faker::Lorem.paragraph,
+            rating: (1..10).to_a.sample
+        )
+    end
+end
         
         
 ##### PREVIOUS IMPLEMENTATIONS #####

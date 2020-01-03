@@ -12,7 +12,7 @@
 <br>
 <p><%= button_to "Review a Race!", new_review_path, method: :get %></p>
 <br>
-<p><%= button_to "Edit user", edit_user_path(@user) %></p>
+<p><%= button_to "Edit user", edit_user_path(@user), method: :get %></p>
 <%= button_to 'Delete user', user_path(@user), :data => {:confirm => 'Are you sure?'}, method: :delete %>
 <br>
 <p><%= link_to "Back to all users", users_path %></p>
