@@ -1,2 +1,17 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.username %>'s Profile</h1>
+
+
+<% if @user.reviews.empty? %>
+    <p><%= @user.username %> has not reviewed any race.</p>
+<% else %>
+    <h2><%= @user.username %>'s reviews: </h2>
+    <% @user.reviews.each do |r| %>
+        <p>Commented: "<%= r.content %>" on <%= r.race.name %></p>
+    <% end %>
+<% end %>
+
+<br>
+<p><%= button_to "Edit user", edit_user_path(@user) %></p>
+<%= button_to 'Delete user', user_path(@user), :data => {:confirm => 'Are you sure?'}, :method => :delete %>
+<br>
+<p><%= link_to "Back to all users", users_path %></p>
