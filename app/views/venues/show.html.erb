@@ -1,0 +1,8 @@
+<h1><%= @venue.trackname %></h1>
+
+<h2>Home to the <%= link_to @venue.races.first.name, race_path(@venue.races.first.id) %></h2>
+
+<h3>Located in <%= "#{@venue.city}, #{@venue.country}" %></h3>
+
+
+<p><%= link_to "Back to all venues", venues_path %></p>

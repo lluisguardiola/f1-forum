@@ -1,0 +1,11 @@
+<h1><%= link_to @result.driver.fullname, driver_path(@result.driver)%><%= "'s stats for the " %><%= link_to @result.race.name, race_path(@result.race)%></h1>
+
+<h2>Place: <%= @result.place.ordinalize %></h2>
+
+<p>Grid start position: <%= @result.grid.ordinalize %></p>
+<p>Status: <%= @result.status %> <%= "Failure" if @result.status != "Finished" && @result.status[1] == Integer %></p>
+<p>Race time: <%= @result.racetime %></p>
+<p>Laps: <%= @result.laps %> / <%= @result.total_gp_laps %></p>
+<p>Fastest Lap: <%= @result.fastest_lap.to_i.ordinalize %> lap, <%= @result.modifiedformat_fastest_lap_time %> </p>
+<p>Fastest Lap Rank: <%= @result.fastest_lap_rank.ordinalize %></p>
+<p>Average Speed: <%= @result.avg_speed%> kph</p>

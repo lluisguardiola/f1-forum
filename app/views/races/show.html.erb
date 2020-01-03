@@ -1,0 +1,10 @@
+<h1><%= @race.name %></h1>
+<h2>Race Start: <%= @race.datetime %></h2>
+<h2>Held at the <%= @race.venue.trackname %></h2>
+<% @race.results.order(place: :asc).each do |result| %>
+
+        <p> <%= result.place.ordinalize %> Place: <%= link_to result.driver.fullname, result %></p>
+
+<% end %>
+
+<p><%= link_to "Back to all races", races_path %></p>

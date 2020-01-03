@@ -1,0 +1,7 @@
+<h1>2019 Venues</h1>
+
+<% @venues.each do |v| %>
+    <ul>
+        <li><h3><%= link_to v.trackname, v %></h3></li>
+    </ul>
+<% end %>

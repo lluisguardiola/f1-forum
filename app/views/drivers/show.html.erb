@@ -4,7 +4,7 @@
 
 <% @driver.results.order(race_id: :desc).each do |r| %>
     <ul>
-        <li>GP: <%= r.race.name %>, Place: <%= r.place %></li>
+        <li><%=link_to "GP: #{r.race.name}, #{r.place.ordinalize} Place", r%></li>
     </ul>
 <% end %>
 

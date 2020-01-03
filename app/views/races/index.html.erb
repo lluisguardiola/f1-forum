@@ -1,0 +1,7 @@
+<h1>2019 Races</h1>
+
+<% @races.order(round: :desc).each do |r| %>
+    <ul>
+        <li><h3><%= link_to r.name, r %> - <%= r.datetime_short %></h3></li>
+    </ul>
+<% end %>
