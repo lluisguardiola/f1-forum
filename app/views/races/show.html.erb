@@ -10,6 +10,7 @@
 <br>
 <center><h2> ------------------------------------------------------------ COMMENT SECTION ------------------------------------------------------------ </h2></center>
 <% @race.reviews.each do |r| %>
+        <!-- if a user is deleted the race show page wont load, it is trying to find the deleted user username's review but that record does not exist anymore -->
         <p><%= link_to r.user.username, r.user %>: "<%= r.content %>" - rated <%= r.rating %> / 10</p>
 <% end %>
 
