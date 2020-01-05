@@ -6,7 +6,7 @@
 <% else %>
     <h2><%= @user.username %>'s reviews: </h2>
     <% @user.reviews.each do |r| %>
-        <p>Commented: "<%= r.content %>" on <%= link_to r.race.name, r.race %></p>
+        <p>Commented: "<%= r.content %>" on <%= link_to r.race.name, r.race %> - rated <%= r.rating %> / 10 </p>
     <% end %>
 <% end %>
 <br>
